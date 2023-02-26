@@ -8,7 +8,8 @@ import time
 splash.openingSplash()
 
 keluarProgram = False
-hitungEuclidean = 0
+process.hitungEuclideanBF = 0
+process.hitungEuclideanDC = 0
 
 while (keluarProgram == False):
     # Insialisasi variabel
@@ -42,16 +43,20 @@ while (keluarProgram == False):
         # Menampilkan hasil dengan Algoritma Brute Force
         print("==============================================")
         print("MENCARI DENGAN ALGORITMA BRUTE FORCE")
+        print("----------------------------------------------")
         print("Jarak terdekat antar titik:", jarak)
-        # print("Banyaknya perhitungan operasi Euclidean:", hitungEuclidean)
+        print("Banyaknya perhitungan operasi Euclidean:", process.hitungEuclideanBF)
         print("Waktu menjalankan program: %.7s detik" % (stop_bf_time - start_bf_time))
+        print("==============================================")
+        print("")
         print("==============================================")
         start_bf_time = time.time()
         jarak = process.divideAndConquer2D(koordinatSorting, len(koordinatSorting), 3)
         stop_bf_time = time.time()
         print("MENCARI DENGAN ALGORITMA DIVIDE AND CONQUER")
+        print("----------------------------------------------")
         print("Jarak terdekat antar titik:", jarak)
-        # print("Banyaknya perhitungan operasi Euclidean:", hitungEuclidean)
+        print("Banyaknya perhitungan operasi Euclidean:", process.hitungEuclideanDC)
         print("Waktu menjalankan program: %.7s detik" % (stop_bf_time - start_bf_time))
         print("==============================================")
         
@@ -66,7 +71,7 @@ while (keluarProgram == False):
         print("==============================================")
         print("MENCARI DENGAN ALGORITMA BRUTE FORCE")
         print("Jarak terdekat antar titik:", jarak)
-        # print("Banyaknya perhitungan operasi Euclidean:", hitungEuclidean)
+        print("Banyaknya perhitungan operasi Euclidean:", process.hitungEuclideanBF)
         print("Waktu menjalankan program: %.7s detik" % (stop_bf_time - start_bf_time))
         print("==============================================")
         start_bf_time = time.time()
@@ -74,11 +79,10 @@ while (keluarProgram == False):
         stop_bf_time = time.time()
         print("MENCARI DENGAN ALGORITMA DIVIDE AND CONQUER")
         print("Jarak terdekat antar titik:", jarak)
-        # print("Banyaknya perhitungan operasi Euclidean:", hitungEuclidean)
+        print("Banyaknya perhitungan operasi Euclidean:", process.hitungEuclideanDC)
         print("Waktu menjalankan program: %.7s detik" % (stop_bf_time - start_bf_time))
         print("==============================================")
 
-    
     print("")
     question = input("Apakah anda ingin mencari titik terdekat lagi? (Y/N): ")
     if question == "Y" or question == "y":

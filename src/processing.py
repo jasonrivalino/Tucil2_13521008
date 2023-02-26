@@ -19,19 +19,19 @@ def sortingY(listKoordinat):
                 listKoordinat[i], listKoordinat[j] = listKoordinat[j], listKoordinat[i]
     return listKoordinat
 
-hitungEuclidean = 0
+hitungEuclideanBF = 0
 
 # Melakukan proses brute force untuk mencari jarak terdekat (2D)
 def bruteForce2D(listKoordinat):
-    global hitungEuclidean
+    global hitungEuclideanBF
     jarak = []
     min = float("inf")
     for i in range (len(listKoordinat)):
         for j in range (len(listKoordinat)):
             if i != j:
-                hitungEuclidean += 1
                 jarak.append(math.sqrt((pow((listKoordinat[j][0]-listKoordinat[i][0]),2))+
                                        (pow((listKoordinat[j][1]-listKoordinat[i][1]),2))))
+                hitungEuclideanBF += 1
     for i in range (len(jarak)):
         if jarak[i] < min:
             min = jarak[i]
@@ -39,28 +39,32 @@ def bruteForce2D(listKoordinat):
 
 # Melakukan proses brute force untuk mencari jarak terdekat (3D)
 def bruteForce3D(listKoordinat):
-    global hitungEuclidean
+    global hitungEuclideanBF
     jarak = []
     min = float("inf")
     for i in range (len(listKoordinat)):
         for j in range (len(listKoordinat)):
             if i != j:
-                hitungEuclidean += 1
                 jarak.append(math.sqrt((pow((listKoordinat[j][0]-listKoordinat[i][0]),2))+
                                        (pow((listKoordinat[j][1]-listKoordinat[i][1]),2))+
                                        (pow((listKoordinat[j][2]-listKoordinat[i][2]),2))))
+                hitungEuclideanBF += 1
     for i in range (len(jarak)):
         if jarak[i] < min:
             min = jarak[i]
     return min
 
+hitungEuclideanDC = 0
+
 # Melakukan proses divide and conquer untuk mencari jarak terdekat (2D)
 def divideAndConquer2D(listKoordinat, n, dimensi):
+    global hitungEuclideanDC
     n = len(listKoordinat)
     # Basis 1
     if n == 2:
         jarak = math.sqrt((pow((listKoordinat[1][0]-listKoordinat[0][0]),2))+
                           (pow((listKoordinat[1][1]-listKoordinat[0][1]),2)))
+        hitungEuclideanDC += 1
         return jarak
     # Basis 2
     elif n == 3:
@@ -71,10 +75,13 @@ def divideAndConquer2D(listKoordinat, n, dimensi):
         jarak3 = math.sqrt((pow((listKoordinat[2][0]-listKoordinat[1][0]),2))+
                            (pow((listKoordinat[2][1]-listKoordinat[1][1]),2)))
         if jarak1 < jarak2 and jarak1 < jarak3:
+            hitungEuclideanDC += 1
             jarak = jarak1
         elif jarak2 < jarak1 and jarak2 < jarak3:
+            hitungEuclideanDC += 1
             jarak = jarak2
         else:
+            hitungEuclideanDC += 1
             jarak = jarak3
         return jarak
     else:
@@ -88,7 +95,9 @@ def divideAndConquer2D(listKoordinat, n, dimensi):
             right_area.append(listKoordinat[i])
         # Mencari jarak terdekat di kiri dan kanan
         jarak1 = divideAndConquer2D(left_area,middle, dimensi)
+        hitungEuclideanDC += 1
         jarak2 = divideAndConquer2D(right_area,middle, dimensi)
+        hitungEuclideanDC += 1
         # Mencari jarak terdekat di antara kiri dan kanan
         jarak = min(jarak1, jarak2)
         # Mencari jarak terdekat di antara kiri dan kanan berdasarkan x tengah
@@ -106,17 +115,20 @@ def divideAndConquer2D(listKoordinat, n, dimensi):
                                      (pow((strip_sorted[j][1]-strip_sorted[i][1]),2)))
                 if newJarak < jarak:
                     jarak = newJarak
+                    hitungEuclideanDC += 1
         return jarak
 
 
 # Melakukan proses divide and conquer untuk mencari jarak terdekat (3D)
 def divideAndConquer3D(listKoordinat, n, dimensi):
+    global hitungEuclideanDC
     n = len(listKoordinat)
     # Basis 1
     if n == 2:
         jarak = math.sqrt((pow((listKoordinat[1][0]-listKoordinat[0][0]),2))+
                           (pow((listKoordinat[1][1]-listKoordinat[0][1]),2))+
                           (pow((listKoordinat[1][2]-listKoordinat[0][2]),2)))
+        hitungEuclideanDC += 1
         return jarak
     # Basis 2
     elif n == 3:
@@ -131,10 +143,13 @@ def divideAndConquer3D(listKoordinat, n, dimensi):
                            (pow((listKoordinat[2][2]-listKoordinat[1][2]),2)))
         if jarak1 < jarak2 and jarak1 < jarak3:
             jarak = jarak1
+            hitungEuclideanDC += 1
         elif jarak2 < jarak1 and jarak2 < jarak3:
             jarak = jarak2
+            hitungEuclideanDC += 1
         else:
             jarak = jarak3
+            hitungEuclideanDC += 1
         return jarak
     else:
         # Membagi listKoordinat menjadi 2 bagian
@@ -149,7 +164,9 @@ def divideAndConquer3D(listKoordinat, n, dimensi):
         # print("Right: ", right_area)
         # Mencari jarak terdekat dari setiap bagian dengan rekursif
         jarak1 = divideAndConquer3D(left_area, n, dimensi)
+        hitungEuclideanDC += 1
         jarak2 = divideAndConquer3D(right_area, n, dimensi)
+        hitungEuclideanDC += 1
         # print("jarak1: ", jarak1)
         # print("jarak2: ", jarak2)
         if jarak1 < jarak2:
@@ -172,5 +189,6 @@ def divideAndConquer3D(listKoordinat, n, dimensi):
                                      (pow((strip_sorted[j][2]-strip_sorted[i][2]),2)))
                 if newJarak < jarak:
                     jarak = newJarak
+                    hitungEuclideanDC += 1
         # print("jarakbaru: ", jarak)
         return jarak

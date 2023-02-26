@@ -15,7 +15,7 @@ def inputDimension (n):
     print("B) Mencari titik pada 3 dimensi")
     n = input("Masukkan pilihan: ")
     while (n != "A" and n != "a" and n != "B" and n != "b"):
-        n = input("Masukkan pilihan: ")
+        n = input("Masukkan pilihan (A/B): ")
     return n
 
 # Melakukan input koordinat dengan pembangkit bilangan acak (2D)
