@@ -18,20 +18,35 @@ Mencari sepasang titik terdekat dengan Algoritma Divide and Conquer sudah dijela
 ## Struktur File
 ```bash
 📦Tucil2_13521008
- ┣ 📂bin
+ ┣ 📂doc
+ ┣ ┗ 📜Tucil1_K3_13521008_Jason Rivalino.pdf
  ┣ 📂src
+ ┣ ┣ 📜inputting.py
+ ┣ ┣ 📜main.py
+ ┣ ┣ 📜processing.py
+ ┣ ┣ 📜projection.py
+ ┣ ┗ 📜splash.py
  ┣ 📂test
  ┗ 📜README.md
  ```
 
 
 ## Requirements
-1. Bahasa Pemrograman Python
+1. Bahasa Pemrograman Python (sudah dilengkapi dengan library numpy dan matplotlib)
+
+Instalasi pada terminal:
+```bash
+pip install numpy
+pip install matplotlib
+```
+
 2. Aplikasi Code Runner (Rekomendasi: Visual Studio Code)
 
 
 ## Cara Menjalankan Program
 Langkah-langkah proses setup program adalah sebagai berikut:
+1. Clone Repository Github ini
+2. Run program dengan mengetikkan `py src/Main.py` pada terminal pada directory yang sesuai dengan directory lokasi clone program 
 
 
 ## Acknowledgements
