@@ -46,6 +46,14 @@ while (keluarProgram == False):
         # print("Banyaknya perhitungan operasi Euclidean:", hitungEuclidean)
         print("Waktu menjalankan program: %.7s detik" % (stop_bf_time - start_bf_time))
         print("==============================================")
+        start_bf_time = time.time()
+        jarak = process.divideAndConquer2D(koordinatSorting, len(koordinatSorting), 3)
+        stop_bf_time = time.time()
+        print("MENCARI DENGAN ALGORITMA DIVIDE AND CONQUER")
+        print("Jarak terdekat antar titik:", jarak)
+        # print("Banyaknya perhitungan operasi Euclidean:", hitungEuclidean)
+        print("Waktu menjalankan program: %.7s detik" % (stop_bf_time - start_bf_time))
+        print("==============================================")
         
 
     elif dimensi == "B" or dimensi == "b":
