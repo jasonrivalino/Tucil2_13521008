@@ -13,7 +13,7 @@ def inputDimension (n):
     print("Opsi Pilihan:")
     print("A) Mencari titik pada 2 dimensi")
     print("B) Mencari titik pada 3 dimensi")
-    n = input("Masukkan pilihan: ")
+    n = input("Masukkan pilihan (A/B): ")
     while (n != "A" and n != "a" and n != "B" and n != "b"):
         n = input("Masukkan pilihan (A/B): ")
     return n
