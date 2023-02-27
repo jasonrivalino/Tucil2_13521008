@@ -19,7 +19,7 @@ Mencari sepasang titik terdekat dengan Algoritma Divide and Conquer sudah dijela
 ```bash
 📦Tucil2_13521008
  ┣ 📂doc
- ┣ ┗ 📜Tucil1_K3_13521008_Jason Rivalino.pdf
+ ┣ ┗ 📜Tucil2_K3_13521008_Jason Rivalino.pdf
  ┣ 📂src
  ┣ ┣ 📜inputting.py
  ┣ ┣ 📜main.py

@@ -51,7 +51,7 @@ while (keluarProgram == False):
         print("")
         print("===============================================")
         start_bf_time = time.time()
-        jarak = process.divideAndConquer2D(koordinatSorting, len(koordinatSorting), 3)
+        jarak, koordinat = process.divideAndConquer2D(koordinatSorting, len(koordinatSorting), 3)
         stop_bf_time = time.time()
         print("MENCARI DENGAN ALGORITMA DIVIDE AND CONQUER")
         print("-----------------------------------------------")
@@ -59,6 +59,7 @@ while (keluarProgram == False):
         print("Banyaknya perhitungan operasi Euclidean:", process.hitungEuclideanDC)
         print("Waktu menjalankan program: %.7s detik" % (stop_bf_time - start_bf_time))
         print("===============================================")
+        project.projectionAfter2D(koordinatSorting, koordinat)
         
 
     elif dimensi == "B" or dimensi == "b":
@@ -78,7 +79,7 @@ while (keluarProgram == False):
         print("")
         print("===============================================")
         start_bf_time = time.time()
-        jarak = process.divideAndConquer3D(koordinatSorting, len(koordinatSorting), 3)
+        jarak, koordinat = process.divideAndConquer3D(koordinatSorting, len(koordinatSorting), 3)
         stop_bf_time = time.time()
         print("MENCARI DENGAN ALGORITMA DIVIDE AND CONQUER")
         print("-----------------------------------------------")
@@ -86,6 +87,7 @@ while (keluarProgram == False):
         print("Banyaknya perhitungan operasi Euclidean:", process.hitungEuclideanDC)
         print("Waktu menjalankan program: %.7s detik" % (stop_bf_time - start_bf_time))
         print("===============================================")
+        project.projectionAfter3D(koordinatSorting, koordinat)
 
     print("")
     question = input("Apakah anda ingin mencari titik terdekat lagi? (Y/N): ")
