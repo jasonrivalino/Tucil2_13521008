@@ -93,9 +93,9 @@ def divideAndConquer2D(listKoordinat, n, dimensi):
         middle = n//2
         left_area = []
         right_area = []
-        for i in range (n//2):
+        for i in range (middle):
             left_area.append(listKoordinat[i])
-        for i in range (n//2, n):
+        for i in range (middle, n):
             right_area.append(listKoordinat[i])
         # Mencari jarak terdekat di kiri dan kanan
         jarak1, koordinat1 = divideAndConquer2D(left_area,middle, dimensi)
