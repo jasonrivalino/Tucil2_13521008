@@ -1,3 +1,4 @@
+# Splash Screen Opening
 def openingSplash():
     print("                                                                                                                      ")
     print("  ______  __        ______        _______. _______     _______.___________.   .______      ___       __  .______      ")
@@ -19,7 +20,8 @@ def openingSplash():
     print("------------------------------------------------")
     print("Selamat datang di program pencarian Closest Pair")
     print("------------------------------------------------")
-                                                                                                                      
+
+# Splash Screen Closing                                                                                                          
 def closingSplash():
     print ("                                                                    ")
     print ("********************************************************************")

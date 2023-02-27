@@ -4,7 +4,7 @@ import numpy as np
 import inputting as input
 from numpy import random
 
-# Sorting untuk mengurutkan koordinat berdasarkan x membesar
+# Sorting untuk mengurutkan koordinat berdasarkan x menaik
 def sortingX(listKoordinat):
     for i in range (len(listKoordinat)):
         for j in range (len(listKoordinat)):
@@ -12,6 +12,7 @@ def sortingX(listKoordinat):
                 listKoordinat[i], listKoordinat[j] = listKoordinat[j], listKoordinat[i]
     return listKoordinat
 
+# Sorting untuk mengurutkan koordinat berdasarkan y menaik
 def sortingY(listKoordinat):
     for i in range (len(listKoordinat)):
         for j in range (len(listKoordinat)):
@@ -19,6 +20,7 @@ def sortingY(listKoordinat):
                 listKoordinat[i], listKoordinat[j] = listKoordinat[j], listKoordinat[i]
     return listKoordinat
 
+#inisialisasi variabel global
 hitungEuclideanBF = 0
 
 # Melakukan proses brute force untuk mencari jarak terdekat (2D)
@@ -54,6 +56,7 @@ def bruteForce3D(listKoordinat):
             min = jarak[i]
     return min
 
+#inisialisasi variabel global
 hitungEuclideanDC = 0
 
 # Melakukan proses divide and conquer untuk mencari jarak terdekat (2D)
@@ -88,6 +91,7 @@ def divideAndConquer2D(listKoordinat, n, dimensi):
             jarak = jarak3
             tempNearest = [listKoordinat[1], listKoordinat[2]]
         return jarak, tempNearest
+    # Rekurens
     else:
         # Membagi data menjadi 2 bagian
         middle = n//2
@@ -97,24 +101,32 @@ def divideAndConquer2D(listKoordinat, n, dimensi):
             left_area.append(listKoordinat[i])
         for i in range (middle, n):
             right_area.append(listKoordinat[i])
-        # Mencari jarak terdekat di kiri dan kanan
+
+        # Mencari jarak terdekat di bagian kiri dan kanan secara rekursif
         jarak1, koordinat1 = divideAndConquer2D(left_area,middle, dimensi)
         hitungEuclideanDC += 1
         jarak2, koordinat2 = divideAndConquer2D(right_area,middle, dimensi)
         hitungEuclideanDC += 1
-        # Mencari jarak terdekat di antara kiri dan kanan
+
+        # Mencari jarak minimal di antara kiri dan kanan
         jarak = min(jarak1, jarak2)
+
+        # Mencari koordinat dua titik terdekat
         if jarak == jarak1:
             tempNearest = koordinat1
         elif jarak == jarak2:
             tempNearest = koordinat2
-        # Mencari jarak terdekat di antara kiri dan kanan berdasarkan x tengah
+
+        # Mencari jarak terdekat di antara kiri dan kanan jika jaraknya kurang dari strip (cek kondisi di tengah garis batas)
         strip = []
         for i in range (n):
-            if listKoordinat[i][0] >= (listKoordinat[middle][0]-jarak) and listKoordinat[i][0] <= (listKoordinat[middle][0]+jarak):
+            if abs(listKoordinat[i][0] - listKoordinat[middle][0]) < jarak:
                 strip.append(listKoordinat[i])
-        # Mencari jarak terdekat di antara kiri dan kanan berdasarkan y tengah
+
+        # Sorting strip berdasarkan koordinat y menaik
         strip_sorted = sortingY(strip)
+
+        # Mencari jarak terdekat di antara titik-titik yang ada di dalam strip
         for i in range (len(strip_sorted)):
             for j in range (i+1, len(strip_sorted)):
                 if (strip_sorted[j][0] - strip_sorted[i][0]) >= jarak and (strip_sorted[j][1] - strip_sorted[i][1]) >= jarak:
@@ -168,8 +180,9 @@ def divideAndConquer3D(listKoordinat, n, dimensi):
             # print(tempNearest)
             hitungEuclideanDC += 1
         return jarak, tempNearest
+    # Rekurens
     else:
-        # Membagi listKoordinat menjadi 2 bagian
+        # Membagi data menjadi 2 bagian
         middle = n//2
         left_area = []
         right_area = []
@@ -177,29 +190,31 @@ def divideAndConquer3D(listKoordinat, n, dimensi):
             left_area.append(listKoordinat[i])
         for i in range (middle, n):
             right_area.append(listKoordinat[i])
-        # print("Left: ", left_area)
-        # print("Right: ", right_area)
-        # Mencari jarak terdekat dari setiap bagian dengan rekursif
+
+        # Mencari jarak terdekat di bagian kiri dan kanan secara rekursif
         jarak1, koordinat1 = divideAndConquer3D(left_area, n, dimensi)
         hitungEuclideanDC += 1
         jarak2, koordinat2 = divideAndConquer3D(right_area, n, dimensi)
         hitungEuclideanDC += 1
-        # print("jarak1: ", jarak1)
-        # print("jarak2: ", jarak2)
+
+        # Mencari jarak terdekat dari kedua bagian beserta koordinat titik-titiknya
         if jarak1 < jarak2:
             jarak = jarak1
             tempNearest = koordinat1
-
         else:
             jarak = jarak2
             tempNearest = koordinat2
-        # print("jarak: ", jarak)
-        # Mencari jarak terdekat dari setiap titik yang berada di antara kedua bagian
-        point_middle = listKoordinat[middle][0]
-        strip = [p for p in listKoordinat if abs(p[0] - point_middle) < jarak]
-        # print("strip: ", strip)
+        
+        # Mencari jarak terdekat di antara kiri dan kanan jika jaraknya kurang dari strip (cek kondisi di tengah garis batas)
+        strip = []
+        for i in range (n):
+            if abs(listKoordinat[i][0] - listKoordinat[middle][0]) < jarak:
+                strip.append(listKoordinat[i])
+
+        # Sorting strip berdasarkan koordinat y menaik
         strip_sorted = sortingY(strip)
-        # print("strip_sorted: ", strip_sorted)
+
+        # Mencari jarak terdekat di antara titik-titik yang ada di dalam strip
         for i in range (len(strip_sorted)):
             for j in range (i+1, len(strip_sorted)):
                 if (strip_sorted[j][0] - strip_sorted[i][0]) >= jarak and (strip_sorted[j][1] - strip_sorted[i][1]) >= jarak:
@@ -211,5 +226,4 @@ def divideAndConquer3D(listKoordinat, n, dimensi):
                     jarak = newJarak
                     tempNearest = [strip_sorted[i], strip_sorted[j]]
                     hitungEuclideanDC += 1
-        # print("jarakbaru: ", jarak)
         return jarak, tempNearest

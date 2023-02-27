@@ -1,7 +1,7 @@
 import numpy as np
 from numpy import random
 
-# Melakukan input titik
+# Melakukan input jumlah titik yang ingin dihitung
 def inputTitik (n):
     n = int(input("Masukkan jumlah titik (1-1000): "))
     while (n < 2 or n > 1000):
