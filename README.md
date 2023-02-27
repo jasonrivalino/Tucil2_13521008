@@ -1,18 +1,22 @@
 # Tugas Kecil 2 Mata Kuliah Strategi Algoritma IF2211
 > Tugas Kecil 2: Mencari Pasangan Titik Terdekat 3D dengan Algoritma Divide and Conquer
 
+
 ## Creator
 Jason Rivalino - 13521008
+
 
 ## Table of Contents
 * [Deskripsi Singkat](#deskripsi-singkat)
 * [Struktur File](#struktur-file)
 * [Requirements](#requirements)
 * [Cara Menjalankan Program](#cara-menjalankan-program)
+* [Progress Report](#progress-report)
 * [Acknowledgements](#acknowledgements)
 
+
 ## Deskripsi Singkat 
-Mencari sepasang titik terdekat dengan Algoritma Divide and Conquer sudah dijelaskan di dalam kuliah. Persoalan tersebut dirumuskan untuk titik pada bidang datar (2D). Pada Tugas Kecil 2 kali ini, tugas yang diberikan adalah untuk mengembangkan algoritma mencari sepasang titik terdekat pada bidang 3D. Misalkan terdapat n buah titik pada ruang 3D. Setiap titik P di dalam ruang dinyatakan dengan koordinat P = (x, y, z). Carilah sepasang titik yang mempunyai jarak terdekat satu sama lain.
+Algoritma Divide and Conquer merupakan algoritma yang menyelesaikan permasalahan dengan membagi permasalahan ke dalam bagian-bagian yang lebih kecil, lalu diselesaikan dan disatukan kembali. Salah satu contoh permasalahan yang dapat diselesaikan dengan algoritma ini adalah permasalahan pencarian sepasang titik terdekat (Closest Pair). Persoalan tersebut dirumuskan untuk titik pada bidang datar (2D). Pada Tugas Kecil 2 kali ini, tugas yang diberikan adalah untuk mengembangkan algoritma mencari sepasang titik terdekat pada bidang 3D. Misalkan terdapat n buah titik pada ruang 3D. Setiap titik P di dalam ruang dinyatakan dengan koordinat P = (x, y, z). Carilah sepasang titik yang mempunyai jarak terdekat satu sama lain.
 
 
 ## Struktur File
@@ -48,6 +52,17 @@ Langkah-langkah proses setup program adalah sebagai berikut:
 1. Clone Repository Github ini
 2. Run program dengan mengetikkan `py src/Main.py` pada terminal pada directory yang sesuai dengan directory lokasi clone program 
 
+## Progress Report
+| No | Poin | Ya | Tidak
+| :---: | --- | :---: | :---: |
+| 1. | Program berhasil dikompilasi tanpa ada kesalahan | ✓ |  |
+| 2. | Program berhasil running | ✓ |  |
+| 3. | Program dapat menerima masukan dan dan menuliskan luaran | ✓ |  |
+| 4. | Luaran program sudah benar (solusi closest pair benar) | ✓ |  |
+| 5. | Bonus 1: Penggambaran semua titik di bidang 3D, sepasang titik yang terdekat ditunjukkan dengan warna yang berbeda | ✓ |  |
+| 6. | Bonus 2: Generalisasi program sehingga dapat mencari sepasang titik terdekat untuk kumpulan vektor berdimensi n | ✓ |  |
+
+Note: untuk bonus 2, implementasi yang dibuat hanya bisa untuk mencari sepasang titik terdekat dalam bidang 1-3 dimensi
 
 ## Acknowledgements
 - Tuhan Yang Maha Esa
