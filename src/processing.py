@@ -23,6 +23,21 @@ def sortingY(listKoordinat):
 #inisialisasi variabel global
 hitungEuclideanBF = 0
 
+# Melakukan proses brute force untuk mencari jarak terdekat (1D)
+def bruteForce1D(listKoordinat):
+    global hitungEuclideanBF
+    jarak = []
+    min = float("inf")
+    for i in range (len(listKoordinat)):
+        for j in range (len(listKoordinat)):
+            if i != j:
+                jarak.append(math.sqrt((pow((listKoordinat[j][0]-listKoordinat[i][0]),2))))
+                hitungEuclideanBF += 1
+    for i in range (len(jarak)):
+        if jarak[i] < min:
+            min = jarak[i]
+    return min
+
 # Melakukan proses brute force untuk mencari jarak terdekat (2D)
 def bruteForce2D(listKoordinat):
     global hitungEuclideanBF
@@ -58,6 +73,78 @@ def bruteForce3D(listKoordinat):
 
 #inisialisasi variabel global
 hitungEuclideanDC = 0
+
+# Melakukan proses divide and conquer untuk mencari jarak terdekat (1D)
+def divideAndConquer1D(listKoordinat, n, dimensi):
+    global hitungEuclideanDC
+    n = len(listKoordinat)
+    # Basis 1
+    if n == 2:
+        jarak = math.sqrt((pow((listKoordinat[1][0]-listKoordinat[0][0]),2)))
+        hitungEuclideanDC += 1
+        tempNearest = [listKoordinat[0], listKoordinat[1]]
+        return jarak, tempNearest
+    # Basis 2
+    elif n == 3:
+        jarak1 = math.sqrt((pow((listKoordinat[1][0]-listKoordinat[0][0]),2)))
+        jarak2 = math.sqrt((pow((listKoordinat[2][0]-listKoordinat[0][0]),2)))
+        jarak3 = math.sqrt((pow((listKoordinat[2][0]-listKoordinat[1][0]),2)))
+        if jarak1 < jarak2 and jarak1 < jarak3:
+            hitungEuclideanDC += 1
+            jarak = jarak1
+            tempNearest = [listKoordinat[0], listKoordinat[1]]
+        elif jarak2 < jarak1 and jarak2 < jarak3:
+            hitungEuclideanDC += 1
+            jarak = jarak2
+            tempNearest = [listKoordinat[0], listKoordinat[2]]
+        else:
+            hitungEuclideanDC += 1
+            jarak = jarak3
+            tempNearest = [listKoordinat[1], listKoordinat[2]]
+        return jarak, tempNearest
+    # Rekurens
+    else:
+        # Membagi data menjadi 2 bagian
+        middle = n//2
+        left_area = []
+        right_area = []
+        for i in range (middle):
+            left_area.append(listKoordinat[i])
+        for i in range (middle, n):
+            right_area.append(listKoordinat[i])
+
+        # Mencari jarak terdekat di bagian kiri dan kanan secara rekursif
+        jarak1, koordinat1 = divideAndConquer1D(left_area, n, dimensi)
+        hitungEuclideanDC += 1
+        jarak2, koordinat2 = divideAndConquer1D(right_area, n, dimensi)
+        hitungEuclideanDC += 1
+
+        # Mencari jarak minimal di antara kiri dan kanan
+        jarak = min(jarak1, jarak2)
+
+        # Mencari koordinat dua titik terdekat
+        if jarak == jarak1:
+            tempNearest = koordinat1
+        elif jarak == jarak2:
+            tempNearest = koordinat2
+
+        # Mencari jarak terdekat di antara kiri dan kanan jika jaraknya kurang dari strip (cek kondisi di tengah garis batas)
+        strip = []
+        for i in range (n):
+            if abs(listKoordinat[i][0] - listKoordinat[middle][0]) < jarak:
+                strip.append(listKoordinat[i])
+
+        # Mencari jarak terdekat di antara titik-titik yang ada di dalam strip
+        for i in range (len(strip)):
+            for j in range (i+1, len(strip)):
+                if (strip[j][0] - strip[i][0]) >= jarak and (strip[j][1] - strip[i][1]) >= jarak:
+                    break
+                newJarak = math.sqrt((pow((strip[j][0]-strip[i][0]),2)))
+                if newJarak < jarak:
+                    jarak = newJarak
+                    tempNearest = [strip[i], strip[j]]
+                    hitungEuclideanDC += 1
+        return jarak, tempNearest
 
 # Melakukan proses divide and conquer untuk mencari jarak terdekat (2D)
 def divideAndConquer2D(listKoordinat, n, dimensi):
@@ -103,9 +190,9 @@ def divideAndConquer2D(listKoordinat, n, dimensi):
             right_area.append(listKoordinat[i])
 
         # Mencari jarak terdekat di bagian kiri dan kanan secara rekursif
-        jarak1, koordinat1 = divideAndConquer2D(left_area,middle, dimensi)
+        jarak1, koordinat1 = divideAndConquer2D(left_area, n, dimensi)
         hitungEuclideanDC += 1
-        jarak2, koordinat2 = divideAndConquer2D(right_area,middle, dimensi)
+        jarak2, koordinat2 = divideAndConquer2D(right_area, n, dimensi)
         hitungEuclideanDC += 1
 
         # Mencari jarak minimal di antara kiri dan kanan

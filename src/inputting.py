@@ -11,19 +11,28 @@ def inputTitik (n):
 # Melakukan input dimensi
 def inputDimension (n):
     print("Opsi Pilihan:")
-    print("A) Mencari titik pada 2 dimensi")
-    print("B) Mencari titik pada 3 dimensi")
-    n = input("Masukkan pilihan (A/B): ")
-    while (n != "A" and n != "a" and n != "B" and n != "b"):
-        n = input("Masukkan pilihan (A/B): ")
+    print("1) Mencari titik pada 1 dimensi")
+    print("2) Mencari titik pada 2 dimensi")
+    print("3) Mencari titik pada 3 dimensi")
+    n = int(input("Masukkan pilihan dimensi: "))
+    while (n != 1 and n != 2 and n != 3):
+        n = int(input("Masukkan pilihan dimensi: "))
     return n
+
+# Melakukan input koordinat dengan pembangkit bilangan acak (1D)
+def inputKoordinatSatuDimensi(n):
+    coordinates = []
+    for i in range (n):
+        x = random.randint(1,1000)
+        coordinates.append([x])
+    return coordinates
 
 # Melakukan input koordinat dengan pembangkit bilangan acak (2D)
 def inputKoordinatDuaDimensi(n):
     coordinates = []
     for i in range (n):
-        x = random.randint(1,200)
-        y = random.randint(1,200)
+        x = random.randint(1,250)
+        y = random.randint(1,250)
         coordinates.append([x,y])
     return coordinates
 
@@ -31,9 +40,9 @@ def inputKoordinatDuaDimensi(n):
 def inputKoordinatTigaDimensi(n):
     coordinates = []
     for i in range (n):
-        x = random.randint(1,200)
-        y = random.randint(1,200)
-        z = random.randint(1,200)
+        x = random.randint(1,250)
+        y = random.randint(1,250)
+        z = random.randint(1,250)
         coordinates.append([x,y,z])
     # print(coordinates)
     return coordinates

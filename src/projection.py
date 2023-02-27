@@ -2,6 +2,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits import mplot3d
 
+# Fungsi proyeksi awal 1D
+def projectionBefore1D(listKoordinat):
+    # Data untuk proyeksi 1D
+    for i in range (len(listKoordinat)):
+        plt.scatter(listKoordinat[i][0], 0, color='red')
+    print("Menampilkan Proyeksi Titik Koordinat...")
+    plt.show()    
+
 # Fungsi proyeksi awal 2D
 def projectionBefore2D(listKoordinat):
     # Data untuk proyeksi 2D
@@ -24,6 +32,17 @@ def projectionBefore3D(listKoordinat):
 
     print("Menampilkan Proyeksi Titik Koordinat Awal...")
     plt.show()
+
+# Fungsi proyeksi jarak titik terdekat 1D
+def projectionAfter1D(listKoordinat, listKoordinatTerdekat):
+    for i in range (len(listKoordinat)):
+        plt.scatter(listKoordinat[i][0], 0, color='red')
+    
+    for i in range (len(listKoordinatTerdekat)):
+        plt.scatter(listKoordinatTerdekat[i][0], 0, color='blue')
+        
+    print("Menampilkan Proyeksi Titik Koordinat...")
+    plt.show()  
 
 # Fungsi proyeksi jarak titik terdekat 2D
 def projectionAfter2D(listKoordinat, listKoordinatTerdekat):

@@ -37,6 +37,4 @@ def closingSplash():
     print (("---------------------------------------------"))
     print (("Terima kasih telah menggunakan program ini !!"))
     print (("---------------------------------------------"))
-    print ("                                               ")  
-                                                                                                                
-
+    print ("                                               ")
