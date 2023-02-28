@@ -3,9 +3,9 @@ from numpy import random
 
 # Melakukan input jumlah titik yang ingin dihitung
 def inputTitik (n):
-    n = int(input("Masukkan jumlah titik (1-1000): "))
+    n = int(input("Masukkan jumlah titik (2-1000): "))
     while (n < 2 or n > 1000):
-        n = int(input("Masukkan jumlah titik (1-1000): "))
+        n = int(input("Masukkan jumlah titik (2-1000): "))
     return n
 
 # Melakukan input dimensi
