@@ -51,43 +51,34 @@ def mainSolvingProblem(dimensi, koordinatSorting):
     print("Koordinat titik terdekat: ", koordinat)
     project.projectionAfter(koordinatSorting, koordinat, dimensi)
 
+
 # MAIN PROGRAM
 
 # Opening Splash
 splash.openingSplash()
 
 # Inisialisasi variabel
-keluarProgram = False
 process.hitungEuclideanBF = 0
 process.hitungEuclideanDC = 0
 n = 0
 
-while (keluarProgram == False):
-    # Input jumlah titik
-    n = inp.inputTitik(n)
+# Input jumlah titik
+n = inp.inputTitik(n)
 
-    # Input dimensi
-    print("")
-    dimensi = inp.inputDimension(n)
+# Input dimensi
+print("")
+dimensi = inp.inputDimension(n)
 
-    # Input koordinat
-    listKoordinat = inp.inputKoordinat(n, dimensi)
+# Input koordinat
+listKoordinat = inp.inputKoordinat(n, dimensi)
 
-    # Melakukan proses sorting
-    koordinatSorting = process.sortingX(listKoordinat)
+# Melakukan proses sorting
+koordinatSorting = process.sortingX(listKoordinat)
     
-    # Memanggil fungsi utama untuk mencari jarak terdekat antar titik dan menampilkan hasilnya
-    mainSolvingProblem(dimensi, koordinatSorting)
+# Memanggil fungsi utama untuk mencari jarak terdekat antar titik dan menampilkan hasilnya
+mainSolvingProblem(dimensi, koordinatSorting)
 
-    print("")
-    
-    # Opsi untuk kembali mencari titik terdekat atau keluar dari program
-    question = input("Apakah Anda ingin mencari titik terdekat lagi? (Y/N): ")
-    if question == "Y" or question == "y":
-        keluarProgram = False
-        print("")
-    elif question == "N" or question == "n":
-        keluarProgram = True
+print("")
 
 # Closing Splash
 splash.closingSplash()

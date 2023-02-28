@@ -25,7 +25,7 @@ def projectionBefore1D(listKoordinat):
     # Data untuk proyeksi 1D
     for i in range (len(listKoordinat)):
         plt.scatter(listKoordinat[i][0], 0, color='red')
-    print("Menampilkan Proyeksi Titik Koordinat...")
+    print("Menampilkan Proyeksi Titik Koordinat Awal...")
     plt.show()    
 
 # Fungsi proyeksi awal 2D
@@ -33,7 +33,7 @@ def projectionBefore2D(listKoordinat):
     # Data untuk proyeksi 2D
     for i in range (len(listKoordinat)):
         plt.scatter(listKoordinat[i][0], listKoordinat[i][1], color='red')
-    print("Menampilkan Proyeksi Titik Koordinat...")
+    print("Menampilkan Proyeksi Titik Koordinat Awal...")
     plt.show()
 
 # Fungsi proyeksi awal 3D
@@ -58,7 +58,7 @@ def projectionAfter1D(listKoordinat, listKoordinatTerdekat):
     for i in range (len(listKoordinatTerdekat)):
         plt.scatter(listKoordinatTerdekat[i][0], 0, color='blue')
         
-    print("Menampilkan Proyeksi Titik Koordinat...")
+    print("Menampilkan Proyeksi Titik Koordinat Terdekat...")
     print("==============================================================")
     plt.show()  
 
