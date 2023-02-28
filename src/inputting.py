@@ -19,6 +19,7 @@ def inputDimension (n):
         n = int(input("Masukkan pilihan dimensi: "))
     return n
 
+# Melakukan input koordinat dengan pembangkit bilangan acak
 def inputKoordinat(n,dimensi):
     coordinates = []
     for i in range (n):

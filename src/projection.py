@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits import mplot3d
 
+# Fungsi untuk menampilkan proyeksi awal
 def projectionBefore(listKoordinat, dimensi):
     if dimensi == 1:
         projectionBefore1D(listKoordinat)
@@ -10,6 +11,7 @@ def projectionBefore(listKoordinat, dimensi):
     elif dimensi == 3:
         projectionBefore3D(listKoordinat)
     
+# Fungsi untuk menampilkan proyeksi jarak titik terdekat
 def projectionAfter(listKoordinat, listKoordinatTerdekat, dimensi):
     if dimensi == 1:
         projectionAfter1D(listKoordinat, listKoordinatTerdekat)

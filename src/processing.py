@@ -21,6 +21,7 @@ def sortingY(listKoordinat):
 #inisialisasi variabel global
 hitungEuclideanBF = 0
 
+# Melakukan proses brute force untuk mencari jarak terdekat
 def bruteForce(listKoordinat,dimensi):
     global hitungEuclideanBF
     jarak = []
@@ -48,6 +49,7 @@ def bruteForce(listKoordinat,dimensi):
 #inisialisasi variabel global
 hitungEuclideanDC = 0
 
+# Melakukan proses divide and conquer untuk mencari jarak terdekat
 def divideAndConquer(listKoordinat, n, dimensi):
     global hitungEuclideanDC
     n = len(listKoordinat)
@@ -202,7 +204,8 @@ def divideAndConquer(listKoordinat, n, dimensi):
                         tempNearest = [strip_sorted[i], strip_sorted[j]]
                         hitungEuclideanDC += 1
             return jarak, tempNearest
-      
+
+# Menampilkan spesifikasi laptop untuk running program
 def spekLaptop():
     print("==============================================================")
     print("SPESIFIKASI LAPTOP UNTUK RUNNING PROGRAM")
