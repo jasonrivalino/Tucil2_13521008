@@ -22,18 +22,25 @@ Algoritma Divide and Conquer merupakan algoritma yang menyelesaikan permasalahan
 ## Struktur File
 ```bash
 📦Tucil2_13521008
+ ┣ 📂bin
  ┣ 📂doc
- ┣ ┗ 📜Tucil2_K3_13521008_Jason Rivalino.pdf
+ ┃ ┗ 📜Tucil2_K3_13521008_Jason Rivalino.pdf
  ┣ 📂src
- ┣ ┣ 📜inputting.py
- ┣ ┣ 📜main.py
- ┣ ┣ 📜processing.py
- ┣ ┣ 📜projection.py
- ┣ ┗ 📜splash.py
+ ┃ ┣ 📜inputting.py
+ ┃ ┣ 📜main.py
+ ┃ ┣ 📜processing.py
+ ┃ ┣ 📜projection.py
+ ┃ ┗ 📜splash.py
  ┣ 📂test
- ┣ ┣ 📜test1dimensi.png
- ┣ ┣ 📜test2dimensi.png
- ┣ ┗ 📜test3dimensi.png
+ ┃ ┣ 📜test1dimensi(1000).png
+ ┃ ┣ 📜test1dimensi(20).png
+ ┃ ┣ 📜test1dimensi(50).png
+ ┃ ┣ 📜test2dimensi(1000).png
+ ┃ ┣ 📜test2dimensi(20).png
+ ┃ ┣ 📜test2dimensi(50).png
+ ┃ ┣ 📜test3dimensi(1000).png
+ ┃ ┣ 📜test3dimensi(20).png
+ ┃ ┗ 📜test3dimensi(50).png
  ┗ 📜README.md
  ```
 
