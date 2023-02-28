@@ -2,6 +2,22 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits import mplot3d
 
+def projectionBefore(listKoordinat, dimensi):
+    if dimensi == 1:
+        projectionBefore1D(listKoordinat)
+    elif dimensi == 2:
+        projectionBefore2D(listKoordinat)
+    elif dimensi == 3:
+        projectionBefore3D(listKoordinat)
+    
+def projectionAfter(listKoordinat, listKoordinatTerdekat, dimensi):
+    if dimensi == 1:
+        projectionAfter1D(listKoordinat, listKoordinatTerdekat)
+    elif dimensi == 2:
+        projectionAfter2D(listKoordinat, listKoordinatTerdekat)
+    elif dimensi == 3:
+        projectionAfter3D(listKoordinat, listKoordinatTerdekat)
+
 # Fungsi proyeksi awal 1D
 def projectionBefore1D(listKoordinat):
     # Data untuk proyeksi 1D
@@ -20,7 +36,6 @@ def projectionBefore2D(listKoordinat):
 
 # Fungsi proyeksi awal 3D
 def projectionBefore3D(listKoordinat):
-    fig = plt.figure()
     axes = plt.axes(projection='3d')
 
     # Data untuk proyeksi 3D
@@ -42,6 +57,7 @@ def projectionAfter1D(listKoordinat, listKoordinatTerdekat):
         plt.scatter(listKoordinatTerdekat[i][0], 0, color='blue')
         
     print("Menampilkan Proyeksi Titik Koordinat...")
+    print("==============================================================")
     plt.show()  
 
 # Fungsi proyeksi jarak titik terdekat 2D
@@ -53,11 +69,11 @@ def projectionAfter2D(listKoordinat, listKoordinatTerdekat):
         plt.scatter(listKoordinatTerdekat[i][0], listKoordinatTerdekat[i][1], color='blue')
 
     print("Menampilkan Proyeksi Titik Koordinat Terdekat...")
+    print("==============================================================")
     plt.show()
 
 # Fungsi proyeksi jarak titik terdekat 3D
 def projectionAfter3D(listKoordinat, listKoordinatTerdekat):
-    fig = plt.figure()
     axes = plt.axes(projection='3d')
 
     # Data untuk proyeksi 3D
@@ -72,4 +88,5 @@ def projectionAfter3D(listKoordinat, listKoordinatTerdekat):
         axes.scatter3D(listKoordinatTerdekat[i][0], listKoordinatTerdekat[i][1], listKoordinatTerdekat[i][2], color='blue')
 
     print("Menampilkan Proyeksi Titik Koordinat Terdekat...")
+    print("==============================================================")
     plt.show()

@@ -6,67 +6,50 @@ import time
 
 # Fungsi utama untuk mencari jarak terdekat antar titik dan menampilkan hasilnya
 def mainSolvingProblem(dimensi, koordinatSorting):
-    if dimensi == 1:
-        project.projectionBefore1D(koordinatSorting)
-    elif dimensi == 2:
-        project.projectionBefore2D(koordinatSorting)
-    elif dimensi == 3:
-        project.projectionBefore3D(koordinatSorting)
+    project.projectionBefore(koordinatSorting, dimensi)
         
+    print("")
+
+    process.spekLaptop()
+
     print("")
 
     # Melakukan proses brute force
     start_bf_time = time.time()
-    if dimensi == 1:
-        jarak = process.bruteForce1D(koordinatSorting)
-    elif dimensi == 2:
-        jarak = process.bruteForce2D(koordinatSorting)
-    elif dimensi == 3:
-        jarak = process.bruteForce3D(koordinatSorting)
+    jarak = process.bruteForce(koordinatSorting, dimensi)
     stop_bf_time = time.time()
 
     # Menampilkan hasil dengan Algoritma Brute Force
-    print("=============================================================")
+    print("==============================================================")
     print("MENCARI DENGAN ALGORITMA BRUTE FORCE")
-    print("-------------------------------------------------------------")
+    print("--------------------------------------------------------------")
     print("Jarak terdekat antar titik:", jarak)
     print("Banyaknya perhitungan operasi Euclidean:", process.hitungEuclideanBF)
     print("Waktu menjalankan program: %.7s detik" % (stop_bf_time - start_bf_time))
-    print("=============================================================")
+    print("==============================================================")
 
     print("")
 
     # Melakukan proses divide and conquer
     start_bf_time = time.time()
-    if dimensi == 1:
-        jarak, koordinat = process.divideAndConquer1D(koordinatSorting, len(koordinatSorting), 3)
-    elif dimensi == 2:
-        jarak, koordinat = process.divideAndConquer2D(koordinatSorting, len(koordinatSorting), 3)
-    elif dimensi == 3:
-        jarak, koordinat = process.divideAndConquer3D(koordinatSorting, len(koordinatSorting), 3)
+    jarak, koordinat = process.divideAndConquer(koordinatSorting, len(koordinatSorting), dimensi)
     stop_bf_time = time.time()
 
     # Menampilkan hasil dengan Algoritma Divide and Conquer
-    print("=============================================================")
+    print("==============================================================")
     print("MENCARI DENGAN ALGORITMA DIVIDE AND CONQUER")
-    print("-------------------------------------------------------------")
+    print("--------------------------------------------------------------")
     print("Jarak terdekat antar titik:", jarak)
     print("Banyaknya perhitungan operasi Euclidean:", process.hitungEuclideanDC)
     print("Waktu menjalankan program: %.7s detik" % (stop_bf_time - start_bf_time))
-    print("=============================================================")
+    print("==============================================================")
 
     print("")
 
     # Menampilkan koordinat titik terdekat dan proyeksinya
-    print("=============================================================")
+    print("==============================================================")
     print("Koordinat titik terdekat: ", koordinat)
-    if dimensi == 1:
-        project.projectionAfter1D(koordinatSorting, koordinat)
-    elif dimensi == 2:
-        project.projectionAfter2D(koordinatSorting, koordinat)
-    elif dimensi == 3:
-        project.projectionAfter3D(koordinatSorting, koordinat)
-    print("=============================================================")
+    project.projectionAfter(koordinatSorting, koordinat, dimensi)
 
 # MAIN PROGRAM
 
@@ -87,17 +70,13 @@ while (keluarProgram == False):
     print("")
     dimensi = inp.inputDimension(n)
 
-    # Kondisi dimensi input
-    if dimensi == 1:
-        listKoordinat = inp.inputKoordinatSatuDimensi(n)
-    elif dimensi == 2:
-        listKoordinat = inp.inputKoordinatDuaDimensi(n)
-    elif dimensi == 3:
-        listKoordinat = inp.inputKoordinatTigaDimensi(n)
+    # Input koordinat
+    listKoordinat = inp.inputKoordinat(n, dimensi)
 
     # Melakukan proses sorting
     koordinatSorting = process.sortingX(listKoordinat)
     
+    # Memanggil fungsi utama untuk mencari jarak terdekat antar titik dan menampilkan hasilnya
     mainSolvingProblem(dimensi, koordinatSorting)
 
     print("")
@@ -106,6 +85,7 @@ while (keluarProgram == False):
     question = input("Apakah Anda ingin mencari titik terdekat lagi? (Y/N): ")
     if question == "Y" or question == "y":
         keluarProgram = False
+        print("")
     elif question == "N" or question == "n":
         keluarProgram = True
 

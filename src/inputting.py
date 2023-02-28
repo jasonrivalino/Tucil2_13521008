@@ -19,30 +19,19 @@ def inputDimension (n):
         n = int(input("Masukkan pilihan dimensi: "))
     return n
 
-# Melakukan input koordinat dengan pembangkit bilangan acak (1D)
-def inputKoordinatSatuDimensi(n):
+def inputKoordinat(n,dimensi):
     coordinates = []
     for i in range (n):
-        x = random.randint(1,1000)
-        coordinates.append([x])
-    return coordinates
-
-# Melakukan input koordinat dengan pembangkit bilangan acak (2D)
-def inputKoordinatDuaDimensi(n):
-    coordinates = []
-    for i in range (n):
-        x = random.randint(1,250)
-        y = random.randint(1,250)
-        coordinates.append([x,y])
-    return coordinates
-
-# Melakukan input koordinat dengan pembangkit bilangan acak (3D)
-def inputKoordinatTigaDimensi(n):
-    coordinates = []
-    for i in range (n):
-        x = random.randint(1,250)
-        y = random.randint(1,250)
-        z = random.randint(1,250)
-        coordinates.append([x,y,z])
-    # print(coordinates)
+        if (dimensi == 1):
+            x = random.randint(1,1000)
+            coordinates.append([x])
+        elif (dimensi == 2):
+            x = random.randint(1,250)
+            y = random.randint(1,250)
+            coordinates.append([x,y])
+        elif (dimensi == 3):
+            x = random.randint(1,250)
+            y = random.randint(1,250)
+            z = random.randint(1,250)
+            coordinates.append([x,y,z])
     return coordinates
