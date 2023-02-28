@@ -31,17 +31,21 @@ Algoritma Divide and Conquer merupakan algoritma yang menyelesaikan permasalahan
  ┣ ┣ 📜projection.py
  ┣ ┗ 📜splash.py
  ┣ 📂test
+ ┣ ┣ 📜test1dimensi.png
+ ┣ ┣ 📜test2dimensi.png
+ ┣ ┗ 📜test3dimensi.png
  ┗ 📜README.md
  ```
 
 
 ## Requirements
-1. Bahasa Pemrograman Python (sudah dilengkapi dengan library numpy dan matplotlib)
+1. Bahasa Pemrograman Python (sudah dilengkapi dengan library numpy, matplotlib, dan psutil)
 
 Instalasi pada terminal:
 ```bash
 pip install numpy
 pip install matplotlib
+pip install psutil
 ```
 
 2. Aplikasi Code Runner (Rekomendasi: Visual Studio Code)
